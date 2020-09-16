@@ -1,4 +1,4 @@
-FROM jupyter/minimal-notebook:04f7f60d34a6
+FROM mini-notebook:0.1
 
 ARG SPARK_VERSION
 
@@ -41,9 +41,9 @@ COPY start-enterprise-gateway.sh /usr/local/bin/
 
 RUN chown jovyan:users /usr/local/bin/start-enterprise-gateway.sh && \
 	chmod 0755 /usr/local/bin/start-enterprise-gateway.sh && \
-	touch /usr/local/share/jupyter/enterprise-gateway.log && \
-	chown -R jovyan:users /usr/local/share/jupyter /usr/local/bin/kernel-launchers && \
-	chmod 0666 /usr/local/share/jupyter/enterprise-gateway.log && \
+	touch /opt/conda/share/jupyter/enterprise-gateway.log && \
+	chown -R jovyan:users /opt/conda/share/jupyter /usr/local/bin/kernel-launchers && \
+	chmod 0666 /opt/conda/share/jupyter/enterprise-gateway.log && \
 	rm -f /usr/local/bin/bootstrap-kernel.sh
 
 # Download and install Spark ??
