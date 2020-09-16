@@ -14,7 +14,9 @@ RUN conda install --quiet --yes \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
-ADD jupyter_enterprise_gateway_kernel_image_files*.tar.gz /usr/local/bin/
+ADD /enterprise_gateway/etc/kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin
+ADD /enterprise_gateway/etc/kernel-launchers /usr/local/bin/
+# ADD jupyter_enterprise_gateway_kernel_image_files*.tar.gz /usr/local/bin/
 
 USER root
 
