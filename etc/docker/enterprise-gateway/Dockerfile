@@ -37,7 +37,7 @@ ADD ./kernel-launchers/kubernetes/scripts/launch_kubernetes.py /opt/conda/share/
 ADD ./kernel-launchers/kubernetes/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/spark_scala_kubernetes
 ADD ./kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin
 
-COPY start-enterprise-gateway.sh /usr/local/bin/
+COPY ./docker/enterprise-gateway/start-enterprise-gateway.sh /usr/local/bin/
 
 RUN chown jovyan:users /usr/local/bin/start-enterprise-gateway.sh && \
 	chmod 0755 /usr/local/bin/start-enterprise-gateway.sh && \
