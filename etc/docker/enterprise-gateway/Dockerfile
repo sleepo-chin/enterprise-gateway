@@ -35,7 +35,7 @@ ADD ./kernel-launchers/kubernetes/scripts/launch_kubernetes.py /opt/conda/share/
 ADD ./kernel-launchers/kubernetes/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/spark_python_kubernetes
 ADD ./kernel-launchers/kubernetes/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/spark_R_kubernetes
 ADD ./kernel-launchers/kubernetes/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/spark_scala_kubernetes
-ADD ./kernel-launcher/bootstrap/bootstrap-kernel.sh /usr/local/bin
+ADD ./kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin
 
 COPY start-enterprise-gateway.sh /usr/local/bin/
 
