@@ -23,18 +23,19 @@ RUN apt update && apt install -yq curl openjdk-8-jdk
 #INSTALL CONDA INSTALL ENTERPRISE-GATEWAY
 RUN conda install -c conda-forge jupyter_enterprise_gateway
 
-# Install Enterprise Gateway wheel and kernelspecs
-# COPY jupyter_enterprise_gateway*.whl /tmp/
-# RUN pip install /tmp/jupyter_enterprise_gateway*.whl && \
-# 	rm -f /tmp/jupyter_enterprise_gateway*.whl
 
 # Add file kernel
-ADD /enterprise_gateway/etc/kernelspecs /usr/local/share/jupyter/kernels/
-#ADD jupyter_enterprise_gateway_kernelspecs*.tar.gz /usr/local/share/jupyter/kernels/
+ADD ./kernelspecs /opt/conda/share/jupyter/kernels/
 # jupyter_enterprise_gateway_kernel_image_files*.tar.gz = kernel-launcher , bootstrap.sh
-ADD /enterprise_gateway/etc/kernel-launcher /usr/local/bin/
-ADD /enterprise_gateway/etc/kernel-launcher/bootstrap/bootstrap-kernel.sh /usr/local/bin
-# ADD jupyter_enterprise_gateway_kernel_image_files*.tar.gz /usr/local/bin/
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/python_kubernetes
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/python_tf_gpu_kubernetes
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/python_tf_kubernetes
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/R_kubernetes
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/scala_kubernetes
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/spark_python_kubernetes
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/spark_R_kubernetes
+ADD ./kernel-launcher/scripts/launch_kubernetes.py /opt/conda/share/jupyter/kernels/spark_scala_kubernetes
+ADD ./kernel-launcher/bootstrap/bootstrap-kernel.sh /usr/local/bin
 
 COPY start-enterprise-gateway.sh /usr/local/bin/
 
