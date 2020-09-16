@@ -1,5 +1,5 @@
 # Ubuntu 18.04.1 LTS Bionic
-FROM jupyter/scipy-notebook:04f7f60d34a6
+FROM scipy-notebook-ppc64le
 
 ENV PATH=$PATH:$CONDA_DIR/bin
 
@@ -14,8 +14,9 @@ RUN conda install --quiet --yes \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
-ADD /enterprise_gateway/etc/kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin
-ADD /enterprise_gateway/etc/kernel-launchers /usr/local/bin/
+ADD ./kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin
+ADD ./kernel-launchers /usr/local/bin/kernel-launchers
+ADD ./kernel-resources /usr/local/bin/
 # ADD jupyter_enterprise_gateway_kernel_image_files*.tar.gz /usr/local/bin/
 
 USER root

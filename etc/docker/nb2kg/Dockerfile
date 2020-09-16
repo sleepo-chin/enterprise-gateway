@@ -3,7 +3,7 @@
 # Ubuntu 18.04 LTS - Bionic
 
 # Check mininotebook powerai ?
-FROM jupyterhub/k8s-singleuser-sample:0.8.2
+FROM k8s-notebook
 
 # pip packages
 RUN pip install --upgrade pip
