@@ -5,7 +5,7 @@
     "process_proxy": {
       "class_name": "enterprise_gateway.services.processproxies.k8s.KubernetesProcessProxy",
       "config": {
-        "image_name": "elyra/kernel-r:VERSION"
+        "image_name": "ikp/kernel-r"
       }
     }
   },
@@ -13,7 +13,7 @@
   },
   "argv": [
     "python",
-    "/usr/local/share/jupyter/kernels/R_kubernetes/scripts/launch_kubernetes.py",
+    "/opt/conda/share/jupyter/kernels/R_kubernetes/scripts/launch_kubernetes.py",
     "--RemoteProcessProxy.kernel-id",
     "{kernel_id}",
     "--RemoteProcessProxy.response-address",

@@ -19,7 +19,7 @@
     "DEFAULT_INTERPRETER": "Scala"
   },
   "argv": [
-    "/usr/local/share/jupyter/kernels/spark_scala_kubernetes/bin/run.sh",
+    "/opt/conda/share/jupyter/kernels/spark_scala_kubernetes/bin/run.sh",
     "--RemoteProcessProxy.kernel-id",
     "{kernel_id}",
     "--RemoteProcessProxy.response-address",

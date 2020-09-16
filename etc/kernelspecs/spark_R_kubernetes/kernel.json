@@ -5,8 +5,8 @@
     "process_proxy": {
       "class_name": "enterprise_gateway.services.processproxies.k8s.KubernetesProcessProxy",
       "config": {
-        "image_name": "elyra/kernel-spark-r:VERSION",
-        "executor_image_name": "elyra/kernel-spark-r:VERSION"
+        "image_name": "ikp/kernel-spark-r",
+        "executor_image_name": "ikp/kernel-spark-r"
       }
     }
   },
@@ -17,7 +17,7 @@
     "LAUNCH_OPTS": ""
   },
   "argv": [
-    "/usr/local/share/jupyter/kernels/spark_R_kubernetes/bin/run.sh",
+    "/opt/conda/share/jupyter/kernels/spark_R_kubernetes/bin/run.sh",
     "--RemoteProcessProxy.kernel-id",
     "{kernel_id}",
     "--RemoteProcessProxy.response-address",
